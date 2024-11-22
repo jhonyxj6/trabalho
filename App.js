@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, TextInput} from 'react-native';
 import { Button } from 'react-native-web';
+import TaskCard from './TaskCard';
+
 
 export default function App() {
   return (
@@ -16,13 +18,26 @@ export default function App() {
       placeholder='Nome da tarefa'
       multiline/>
       <View style={styles.buttonContainer}>
-        <Button title styles='Salvar'/>
-          style=
+        <Button title styles='Salvar'
+          style={styles.buttonGreen}
+          color='darkgreen'
+          onPress={
+            () =>{
+              alert ('Salvando ..')
+            }
+          }/>
 
       </View>
-    </View>
-  );
-}
+      <TaskCard
+            title="Teste"
+            desc="Descrição Teste"  
+            status="Done"
+            onClick={() => {
+              alert("deletar");
+           }
+      }/>
+
+},
 
 const styles = StyleSheet.create({
   container: {
@@ -42,10 +57,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     paddiign:12,
     fontSize:17,
-    marginBottom:20,
+    marginBottom:16,
   },
   textArea:{
-    height:400,
+    height:200,
     textAlignVertical:'Top'
   },
   buttonContainer:{
